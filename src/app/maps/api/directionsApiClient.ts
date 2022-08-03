@@ -13,16 +13,13 @@ export class DirectionsApiClient extends HttpClient {
         super(handler);
     }
 
-    public override get<T>(url: string, options: {
-        
-    }) {
+    public override get<T>(url: string) {
 
         url = this.baseUrl + url;
 
         return super.get<T>(url, {
             params: {
                 alternatives: false,
-                annotations: 'distance%2Cduration%2Cspeed%2Ccongestion',
                 geometries: 'geojson',
                 language: 'es',
                 overview: 'full',
